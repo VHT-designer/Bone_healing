@@ -1,0 +1,7 @@
+criterion,description,L_opt_mm,max_value,L_selected_paper_mm,value_at_selected_pct_of_max,plateau90_Lmin_mm,plateau90_Lmax_mm
+S_zstar_N,point sensitivity S(z*) [paper],40,293.7,34,90.53,34,46
+S_frac_signed_N,signed volume integral (Normal),31,5.086,34,99.84,28,37
+S_frac_abs_N,absolute volume integral (Normal),31,5.351,34,98.42,25,37
+S_frac_signed_F,signed volume integral (Fracture S0),34,7.232,34,100,28,43
+abs_dZ,|dZ_tr| (Ohm),66,3550,34,0.6049,66,66
+rel_dZ_pct,|dZ_tr|/|Z_tr| (%),66,0.9927,34,0.6078,66,66
