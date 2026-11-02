@@ -1,7 +1,6 @@
-# Bone_healing
 # Sensors Bone Fracture — Local Workspace
 
-Usage instructions are maintained only in this root README. Model and numerical data files retain their original names for compatibility. The supplied Data/data folders contain CSV files only. Binary models are stored separately in Comsol_3D. Usage descriptions in this README are in English.
+Usage instructions are maintained only in this root README. Model and numerical data files retain their original names for compatibility. The supplied Data folder contains CSV files only. Binary models are stored separately in Comsol_3D. Usage descriptions in this README are in English.
 
 ## Structure
 
@@ -24,13 +23,9 @@ V:/Journal/Sensor/
     02_Paper_Tables/
     03_Electrode_1kHz/
     Runs/revised_models/
-  sensors-bone-fracture/
-    README.md
-    code/
-    Comsol_3D/
 ```
 
-`Comsol_3D` contains the 15 current user-edited models. Local production and A4 configurations load these models. `sensors-bone-fracture` is the portable publication package, with matching copies of the current models and its own English README and relative paths.
+The project uses three top-level folders directly inside `V:/Journal/Sensor`: `Code` for MATLAB sweep code and configuration, `Data` for supplied CSV files and generated results, and `Comsol_3D` for the 15 current user-edited models. Production and A4 configurations load these models. Keep the folder names and their relative positions as shown above. This README stays directly in the Sensor folder.
 
 ## Requirements and startup
 
@@ -51,7 +46,7 @@ cfg = fullfile(S.projectDir,'Code','COMSOL','config_newrun.json');
 port = S.cfg.comsol.server_port;
 ```
 
-Do not mix the local `Code` directory and the publication package `code` directory in the same MATLAB path. Use a fresh MATLAB session when switching between them. The portable package README contains its startup commands.
+Use the code under `V:/Journal/Sensor/Code` for the commands in this README. The local configurations use paths rooted at `V:/Journal/Sensor`.
 
 ## Model inventory and conventions
 
@@ -94,7 +89,7 @@ Run the desired command, not necessarily every line. Worker scripts retain their
 
 ## Outputs and resume
 
-New results go to `Data/Runs/revised_models/`, divided into `comsol_new`, `anat`, `sens`, `mesh`, `contact` and `A4`. The publication package uses `data/runs/revised_models/` with lowercase `a4`. CSV spectra contain `freq_Hz`, `ReZ_Ohm`, `ImZ_Ohm` and metadata sidecars record applied settings.
+New results go to `Data/Runs/revised_models/`, divided into `comsol_new`, `anat`, `sens`, `mesh`, `contact` and `A4`. CSV spectra contain `freq_Hz`, `ReZ_Ohm`, `ImZ_Ohm` and metadata sidecars record applied settings.
 
 Runners skip existing output files or A4 geometry rows. To repeat a simulation after changing a model, use a new output directory or archive the previous output files first. Check final failure counts and finite CSV values. Do not assume a returned MATLAB prompt means every case succeeded.
 
@@ -581,4 +576,3 @@ Table files are supplied analysis results, not inputs to the COMSOL sweeps. List
 | [A4_sweep_Dipole.csv](Data/03_Electrode_1kHz/A4/A4_sweep_Dipole.csv) | Dipole: historical 1 kHz per-geometry intact/fractured sensitivities and complex impedance, with solve time. Derived criteria/optima are supplied outputs; their post-processing code is not included. | 75 rows; `family`, `Re_mm`, `n`, `a_mm`, `freq_Hz`, `S_zstar_N`, `S_frac_signed_N`, `S_frac_abs_N`, `S_zstar_F`, `S_frac_signed_F`, `S_frac_abs_F`, `ReZ_N`, `ImZ_N`, `ReZ_F`, `ImZ_F`, `solve_s` |
 | [A4_sweep_Schlumberger.csv](Data/03_Electrode_1kHz/A4/A4_sweep_Schlumberger.csv) | Schlumberger: historical 1 kHz per-geometry intact/fractured sensitivities and complex impedance, with solve time. Derived criteria/optima are supplied outputs; their post-processing code is not included. | 60 rows; `family`, `Re_mm`, `n`, `a_mm`, `freq_Hz`, `S_zstar_N`, `S_frac_signed_N`, `S_frac_abs_N`, `S_zstar_F`, `S_frac_signed_F`, `S_frac_abs_F`, `ReZ_N`, `ImZ_N`, `ReZ_F`, `ImZ_F`, `solve_s` |
 | [A4_sweep_Wenner.csv](Data/03_Electrode_1kHz/A4/A4_sweep_Wenner.csv) | Wenner: historical 1 kHz per-geometry intact/fractured sensitivities and complex impedance, with solve time. Derived criteria/optima are supplied outputs; their post-processing code is not included. | 60 rows; `family`, `Re_mm`, `n`, `a_mm`, `freq_Hz`, `S_zstar_N`, `S_frac_signed_N`, `S_frac_abs_N`, `S_zstar_F`, `S_frac_signed_F`, `S_frac_abs_F`, `ReZ_N`, `ImZ_N`, `ReZ_F`, `ImZ_F`, `solve_s` |
-
