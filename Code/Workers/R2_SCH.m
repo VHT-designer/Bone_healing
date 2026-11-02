@@ -1,0 +1,13 @@
+addpath('V:\Journal\Sensor\Code\COMSOL');
+base = jsondecode(fileread('V:\Journal\Sensor\Code\COMSOL\config_newrun.json'));
+base.comsol.server_port = 2047;
+base.comsol.survey_modes.diel_linear.fixed_c = 0;
+c = base; c.states = {'S0';'S1';'S2';'S3';'S4'};
+tmp = [tempname('V:/Journal/Sensor/Data/Runs/configs') '.json']; fid = fopen(tmp,'w'); fwrite(fid, jsonencode(c)); fclose(fid);
+fprintf('\n##### STEP 1: Schlumberger / diel_linear #####\n');
+BFH_run_newdata(tmp, 'cole', {'Schlumberger'}, 'diel_linear', 'none');
+c = base; c.states = {'S3';'S4'};
+tmp = [tempname('V:/Journal/Sensor/Data/Runs/configs') '.json']; fid = fopen(tmp,'w'); fwrite(fid, jsonencode(c)); fclose(fid);
+fprintf('\n##### STEP 2: Wenner / both_linear #####\n');
+BFH_run_newdata(tmp, 'cole', {'Wenner'}, 'both_linear', 'none');
+fprintf('\n##### DONE R2_SCH #####\n');

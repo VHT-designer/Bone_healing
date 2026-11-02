@@ -1,0 +1,225 @@
+{
+  "freq": {
+    "f_min_Hz": 1.0,
+    "f_max_Hz": 100000.0,
+    "points_per_decade": 50,
+    "n_points": 251,
+    "plist_mode": "explicit"
+  },
+  "states": [
+    "S0",
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "S5"
+  ],
+  "depths_mm": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    10
+  ],
+  "out_dir": "V:\\Journal\\Sensor\\Data\\Runs\\revised_models\\comsol_new",
+  "discovery_dir": "V:\\Journal\\Sensor\\Data\\Runs\\revised_models\\comsol_new\\_discovery",
+  "pattern_cole": "Z_{family}_{state}.csv",
+  "pattern_depth": "Z_{family}_{state}_{depth}mm.csv",
+  "families": {
+    "Wenner": {
+      "model_path": "V:\\Journal\\Sensor\\Comsol_3D\\Wenner\\Wenner_Cole\\LEG3D_Fracture_Wenner_Cole.mph",
+      "s5_model_path": "V:\\Journal\\Sensor\\Comsol_3D\\Wenner\\Wenner_Cole\\LEG3D_Normal_Wenner_Cole_mesh3.mph",
+      "depth_model_path": "V:\\Journal\\Sensor\\Comsol_3D\\Wenner\\LEG3D_Normal_Wenner_Sensitivity_Depth.mph",
+      "z_expr": "(bnd2-bnd3)/I",
+      "geom_params": {
+        "Re": 2,
+        "b": 3,
+        "n": 2
+      }
+    },
+    "Schlumberger": {
+      "model_path": "V:\\Journal\\Sensor\\Comsol_3D\\Schlumberger\\Schulumberger_Cole\\LEG3D_Fracture_Schulumberger_Cole_mixfix.mph",
+      "s5_model_path": "V:\\Journal\\Sensor\\Comsol_3D\\Schlumberger\\Schulumberger_Cole\\LEG3D_Normal_Schulumberger_Cole_mesh3.mph",
+      "depth_model_path": "V:\\Journal\\Sensor\\Comsol_3D\\Schlumberger\\LEG3D_Normal_Schulumberger_Sensitivity_Depth.mph",
+      "z_expr": "(bnd2-bnd3)/I",
+      "geom_params": {
+        "Re": 2,
+        "n": 2,
+        "b": 3
+      }
+    },
+    "Dipole": {
+      "model_path": "V:\\Journal\\Sensor\\Comsol_3D\\Dipole\\Dipole_Cole\\LEG3D_Fracture_Dipole_Cole.mph",
+      "s5_model_path": "V:\\Journal\\Sensor\\Comsol_3D\\Dipole\\Dipole_Cole\\LEG3D_Normal_Dipole_Cole.mph",
+      "depth_model_path": "V:\\Journal\\Sensor\\Comsol_3D\\Dipole\\LEG3D_Normal_Dipole_Sensitivity_Depth.mph",
+      "z_expr": "(bnd3-bnd4)/I",
+      "geom_params": {
+        "Re": 2,
+        "b": 6,
+        "n": 1
+      },
+      "z_sign": -1
+    }
+  },
+  "comsol": {
+    "mli_path": "C:\\Program Files\\COMSOL\\COMSOL64\\Multiphysics\\mli",
+    "mli_path_alt": "C:\\Program Files\\COMSOL\\COMSOL64\\Multiphysics\\mli",
+    "server_port": 2045,
+    "component_tag": "comp1",
+    "mesh_tag": "mesh1",
+    "study_tag": "std1",
+    "freq_feature_tag": "freq",
+    "z_expr": "(bnd2-bnd3)/I",
+    "s5_mode": "separate_model",
+    "state_mode": "mix_expr",
+    "mix_material": {
+      "component": "comp1",
+      "tag": "mat6"
+    },
+    "geom_scalar": {
+      "name": "c",
+      "values": {
+        "S0": "0",
+        "S1": "0.5",
+        "S2": "1",
+        "S3": "1.5",
+        "S4": "2"
+      }
+    },
+    "depth_param_candidates": [
+      "d_bone",
+      "d_depth",
+      "depth",
+      "z_off",
+      "zoff",
+      "dz",
+      "d_off",
+      "offset",
+      "h_depth",
+      "x_bone",
+      "bone_offset"
+    ],
+    "states_table": "V:\\Journal\\Sensor\\Code\\Common\\data\\states_table_S0S5.csv",
+    "seat_preflight": true,
+    "license_server": "1718@RYOTRAN",
+    "depth_supported": false,
+    "state_param_names": {
+      "dl": "<<n/a: no such param in GUI model>>",
+      "a": "<<n/a>>",
+      "b": "<<n/a: b is the electrode spacing, not a state>>",
+      "w": "<<n/a: mix_expr>>"
+    },
+    "param_unit_suffix": "[mm]",
+    "s5_param": {
+      "name": "<<n/a: separate_model>>",
+      "value_on": "1",
+      "value_off": "0"
+    },
+    "survey_modes": {
+      "both_linear": {
+        "description": "geometry AND dielectric vary together (Table 5 / Fig. 11 case)",
+        "vary_geometry": true,
+        "vary_dielectric": true,
+        "mix_law": "model_linear"
+      },
+      "both_log": {
+        "description": "geometry AND dielectric vary together, Lichtenecker (log) mixing",
+        "vary_geometry": true,
+        "vary_dielectric": true,
+        "mix_law": "lichtenecker"
+      },
+      "geom_only": {
+        "description": "geometry only; fracture material held at pure blood",
+        "vary_geometry": true,
+        "vary_dielectric": false,
+        "mix_law": "none",
+        "fixed_material": {
+          "sigma": "Blood_sigma",
+          "epsr": "Blood_epsilonr"
+        }
+      },
+      "diel_linear": {
+        "description": "dielectric only, linear mixing; geometry held at the baseline",
+        "vary_geometry": false,
+        "vary_dielectric": true,
+        "mix_law": "model_linear",
+        "fixed_c": 0
+      },
+      "diel_log": {
+        "description": "dielectric only, Lichtenecker (log) mixing; geometry at baseline",
+        "vary_geometry": false,
+        "vary_dielectric": true,
+        "mix_law": "lichtenecker",
+        "fixed_c": 0
+      }
+    },
+    "dielectric_ladder_model_linear": {
+      "S0": {
+        "sigma": "Blood_sigma",
+        "epsr": "Blood_epsilonr"
+      },
+      "S1": {
+        "sigma": "Mix_sigma",
+        "epsr": "Mix_epsilonr"
+      },
+      "S2": {
+        "sigma": "Mix_sigma_1",
+        "epsr": "Mix_epsilonr_1"
+      },
+      "S3": {
+        "sigma": "Mix_sigma_2",
+        "epsr": "Mix_epsilonr_2"
+      },
+      "S4": {
+        "sigma": "BoneMarrow_sigma",
+        "epsr": "BoneMarrow_epsilonr"
+      }
+    },
+    "baseline_c_for_dielectric_sweep": "2",
+    "depth": {
+      "stage1_sensitivity": {
+        "method": "material override mat4 (cortical bone) + mat5 (marrow) -> Muscle, solve, read S along the cut line, integrate over the cylindrical shell volume; 11 mm = skin to the upper cortical boundary, 15 mm = inside the bone near the marrow",
+        "override": "nobone",
+        "supported": true
+      },
+      "stage2_bone_displacement": {
+        "method": "with the array chosen in stage 1, move the BONE deeper by 0/2/4/6/8/10 mm from its initial position and test detectability (this is what Dept_bone.xlsx holds)",
+        "offsets_mm": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10
+        ],
+        "supported": false
+      }
+    },
+    "material_override": {
+      "none": {
+        "targets": [],
+        "sigma": "",
+        "epsr": ""
+      },
+      "nobone": {
+        "targets": [
+          "mat4",
+          "mat5"
+        ],
+        "sigma": "Muscle_sigma",
+        "epsr": "Muscle_epsilonr"
+      },
+      "nomarrow": {
+        "targets": [
+          "mat5"
+        ],
+        "sigma": "Muscle_sigma",
+        "epsr": "Muscle_epsilonr"
+      }
+    },
+    "mesh_hauto": 3,
+    "server_np": 8
+  },
+  "data_dir": "V:\\Journal\\Sensor\\Data\\Runs\\revised_models"
+}

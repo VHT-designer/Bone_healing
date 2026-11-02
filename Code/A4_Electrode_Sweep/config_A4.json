@@ -1,0 +1,128 @@
+{
+  "family": "Wenner",
+  "families_all": [
+    "Wenner",
+    "Schlumberger",
+    "Dipole"
+  ],
+  "freq_Hz": 1000,
+  "sweep": {
+    "Re_mm": 2.0,
+    "n_values": {
+      "Wenner": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "Schlumberger": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "Dipole": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "a_values_mm": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ]
+  },
+  "zstar_point": [
+    45.0,
+    0.0,
+    100.0
+  ],
+  "zstar_depth_mm": 15.0,
+  "ellipsoid_S0": {
+    "center": [
+      39.0,
+      0.0,
+      100.0
+    ],
+    "semiaxes": [
+      15.0,
+      15.0,
+      30.0
+    ]
+  },
+  "out_dir": "V:\\Journal\\Sensor\\Data\\Runs\\revised_models\\A4",
+  "sweep_csv": "V:\\Journal\\Sensor\\Data\\Runs\\revised_models\\A4\\A4_sweep_{family}.csv",
+  "comsol": {
+    "mli_path": "C:\\Program Files\\COMSOL\\COMSOL64\\Multiphysics\\mli",
+    "server_port": 2045,
+    "model_normal": "V:\\Journal\\Sensor\\Comsol_3D\\Wenner\\Wenner_Sensitivity\\LEG3D_Normal_Wenner_Sensitivity.mph",
+    "model_fracture": "V:\\Journal\\Sensor\\Comsol_3D\\Wenner\\Wenner_Sensitivity\\LEG3D_Fracture_Wenner_Sensitivity.mph",
+    "models_by_family": {
+      "Wenner": {
+        "normal": "V:\\Journal\\Sensor\\Comsol_3D\\Wenner\\Wenner_Sensitivity\\LEG3D_Normal_Wenner_Sensitivity.mph",
+        "fracture": "V:\\Journal\\Sensor\\Comsol_3D\\Wenner\\Wenner_Sensitivity\\LEG3D_Fracture_Wenner_Sensitivity.mph"
+      },
+      "Schlumberger": {
+        "normal": "V:\\Journal\\Sensor\\Comsol_3D\\Schlumberger\\Schulumberger_Sensitivity\\LEG3D_Normal_Schulumberger_Sensitivity.mph",
+        "fracture": "V:\\Journal\\Sensor\\Comsol_3D\\Schlumberger\\Schulumberger_Sensitivity\\LEG3D_Fracture_Schulumberger_Sensitivity.mph"
+      },
+      "Dipole": {
+        "normal": "V:\\Journal\\Sensor\\Comsol_3D\\Dipole\\Dipole_Sensitivity\\LEG3D_Normal_Dipole_Sensitivity.mph",
+        "fracture": "V:\\Journal\\Sensor\\Comsol_3D\\Dipole\\Dipole_Sensitivity\\LEG3D_Fracture_Dipole_Sensitivity.mph"
+      }
+    },
+    "component_tag": "comp1",
+    "geom_tag": "geom1",
+    "study_tag": "std1",
+    "freq_feature_tag": "freq",
+    "param_names": {
+      "Re": "Re",
+      "a": "b",
+      "n": "n"
+    },
+    "param_unit_suffix": "",
+    "S_expr": "S",
+    "S_expr_fallback": "(ec.Jx*ec2.Jx+ec.Jy*ec2.Jy+ec.Jz*ec2.Jz)/(0.005[A])^2",
+    "z_expr": "(bnd2-bnd3)/I",
+    "fracture_state_S0": {
+      "apply": true,
+      "state_mode": "mix_expr",
+      "states_table": "V:\\Journal\\Sensor\\Code\\Common\\data\\states_table_S0S5.csv",
+      "mix_material": {
+        "component": "comp1",
+        "tag": "mat6"
+      },
+      "geom_scalar": {
+        "name": "c",
+        "values": {
+          "S0": "0"
+        }
+      },
+      "state_param_names": {
+        "dl": "<<n/a: geometry via c>>",
+        "a": "<<n/a>>",
+        "b": "<<n/a>>",
+        "w": "<<n/a: mix_expr>>"
+      },
+      "param_unit_suffix": "[mm]",
+      "s5_mode": "separate_model"
+    },
+    "seat_preflight": true,
+    "license_server": "1718@RYOTRAN"
+  }
+}

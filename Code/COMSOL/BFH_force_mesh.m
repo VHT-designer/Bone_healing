@@ -1,0 +1,9 @@
+function nelem = BFH_force_mesh(model, C)
+assert(isfield(C, 'mesh_hauto') && ~isempty(C.mesh_hauto), ...
+    ['BFH_force_mesh: config is missing mesh_hauto. Each run must use the same ' ...
+     'mesh size level to keep the state comparisons consistent.']);
+h = double(C.mesh_hauto);
+nelem = bfh_set_mesh_level(model, char(C.component_tag), char(C.mesh_tag), h);
+assert(isnumeric(nelem) && isscalar(nelem) && isfinite(nelem) && nelem > 0, ...
+    'BFH_force_mesh: setting hauto=%d returned an invalid element count', h);
+end

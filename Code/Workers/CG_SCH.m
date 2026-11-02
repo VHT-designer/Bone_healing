@@ -1,0 +1,11 @@
+addpath('V:\Journal\Sensor\Code\COMSOL');
+c = jsondecode(fileread('V:\Journal\Sensor\Code\COMSOL\config_newrun.json'));
+c.comsol.server_port = 2047;
+c.states = {'S0';'S1';'S2';'S3';'S4'};
+c.comsol.survey_modes.diel_linear.fixed_c = 0;
+tmp = [tempname('V:/Journal/Sensor/Data/Runs/configs') '.json']; fid = fopen(tmp,'w'); fwrite(fid, jsonencode(c)); fclose(fid);
+fprintf('\n########## QUA TRINH 1/2: geom_only  (Schlumberger) ##########\n');
+BFH_run_newdata(tmp, 'cole', {'Schlumberger'}, 'geom_only', 'none');
+fprintf('\n########## QUA TRINH 2/2: diel_linear (Schlumberger) ##########\n');
+BFH_run_newdata(tmp, 'cole', {'Schlumberger'}, 'diel_linear', 'none');
+fprintf('\n########## BOTH STUDIES FINISHED: Schlumberger ##########\n');
