@@ -1,6 +1,5 @@
 # Sensors Bone Fracture — Local Workspace
-
-Usage instructions are maintained only in this root README. Model and numerical data files retain their original names for compatibility. The supplied Data folder contains CSV files only. Binary models are stored separately in Comsol_3D. Usage descriptions in this README are in English.
+This repository provides the computational models, simulation scripts, and numerical datasets supporting the study of surface bioimpedance for assessing simulated bone-fracture healing. The materials are organized into three directories: `Code` contains the MATLAB scripts and simulation configurations, `Data` contains the numerical datasets in CSV format, and `Comsol_3D` contains the COMSOL Multiphysics models. This README describes the individual files, computational requirements, and procedures for executing the simulation workflows.
 
 ## Structure
 
