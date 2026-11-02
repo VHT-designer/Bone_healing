@@ -1,0 +1,6 @@
+pair,eta_max,status,boot,eta_max_num,status_num,aucn0,aucn
+S0-S1,,above_highest,"{'p2_5': nan, 'p50': nan, 'p97_5': nan, 'n_ok': 0, 'frac_below_lowest': 0.0, 'frac_above_highest': 1.0}",,above_highest,,"[1.0, 1.0, 1.0, 1.0, 0.999, 0.994, 0.963, 0.916]"
+S1-S2,,above_highest,"{'p2_5': nan, 'p50': nan, 'p97_5': nan, 'n_ok': 0, 'frac_below_lowest': 0.0, 'frac_above_highest': 1.0}",,above_highest,,"[1.0, 1.0, 1.0, 1.0, 1.0, 0.998, 0.984, 0.954]"
+S2-S3,,above_highest,"{'p2_5': nan, 'p50': nan, 'p97_5': nan, 'n_ok': 0, 'frac_below_lowest': 0.0, 'frac_above_highest': 1.0}",,above_highest,,"[1.0, 1.0, 1.0, 1.0, 1.0, 0.999, 0.988, 0.963]"
+S3-S4,,above_highest,"{'p2_5': nan, 'p50': nan, 'p97_5': nan, 'n_ok': 0, 'frac_below_lowest': 0.0, 'frac_above_highest': 1.0}",,below_lowest,,"[0.851, 0.848, 0.845, 0.84, 0.83, 0.825, 0.809, 0.782]"
+S4-S5,1.5907506783747951,ok,"{'p2_5': np.float64(0.01518863221685306), 'p50': np.float64(0.01595867855070931), 'p97_5': np.float64(0.01663081011336494), 'n_ok': 1000, 'frac_below_lowest': 0.0, 'frac_above_highest': 0.0}",0.4649725770058825,ok,,"[0.992, 0.966, 0.94, 0.893, 0.858, 0.845, 0.815, 0.779]"

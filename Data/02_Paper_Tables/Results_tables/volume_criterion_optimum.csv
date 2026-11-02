@@ -1,0 +1,19 @@
+config,criterion,description,L_opt_mm,max_value,L_paper_mm,value_at_L_paper,value_at_L_paper_pct_of_max,min_value,plateau90_Lmin_mm,plateau90_Lmax_mm
+Wenner,S_zstar_N,point sensitivity at z* (intact),31.0,264.3061,34.0,258.7125,97.8837,8.548,25.0,37.0
+Wenner,S_frac_signed_N,signed volume integral over the fracture ellipsoid (intact),25.0,12.7754,34.0,11.161,87.3634,0.9209,22.0,31.0
+Wenner,S_frac_abs_N,absolute volume integral over the fracture ellipsoid (intact),25.0,12.7785,34.0,11.2365,87.9326,0.921,22.0,31.0
+Wenner,S_frac_signed_F,"signed volume integral (fractured, S0)",28.0,22.0187,34.0,20.6101,93.6029,2.8243,22.0,34.0
+Wenner,abs_dZ,|dZ_tr| between intact and fractured (Ohm),25.0,30.5722,34.0,26.2091,85.7287,2.7872,22.0,31.0
+Wenner,rel_dZ_pct,|dZ_tr| / |Z_tr| (%),58.0,24.4763,34.0,3.2444,13.2552,0.06,52.0,82.0
+Schlumberger,S_zstar_N,point sensitivity at z* (intact),31.0,218.7832,31.0,218.7832,100.0,31.8213,26.0,36.0
+Schlumberger,S_frac_signed_N,signed volume integral over the fracture ellipsoid (intact),26.0,10.4762,31.0,9.2737,88.522,0.9915,21.0,26.0
+Schlumberger,S_frac_abs_N,absolute volume integral over the fracture ellipsoid (intact),26.0,10.4815,31.0,9.3091,88.8148,1.2588,21.0,26.0
+Schlumberger,S_frac_signed_F,"signed volume integral (fractured, S0)",26.0,18.0294,31.0,16.7388,92.8419,2.3848,21.0,31.0
+Schlumberger,abs_dZ,|dZ_tr| between intact and fractured (Ohm),26.0,24.5804,31.0,21.9289,89.213,2.6899,21.0,26.0
+Schlumberger,rel_dZ_pct,|dZ_tr| / |Z_tr| (%),60.0,28.4113,31.0,2.8103,9.8915,0.1401,49.0,137.0
+Dipole,S_zstar_N,point sensitivity at z* (intact),40.0,293.6517,34.0,265.8413,90.5294,0.2342,34.0,46.0
+Dipole,S_frac_signed_N,signed volume integral over the fracture ellipsoid (intact),31.0,5.0864,34.0,5.078,99.8355,0.0045,28.0,37.0
+Dipole,S_frac_abs_N,absolute volume integral over the fracture ellipsoid (intact),31.0,5.3513,34.0,5.2668,98.4212,0.0372,25.0,37.0
+Dipole,S_frac_signed_F,"signed volume integral (fractured, S0)",34.0,7.2322,34.0,7.2322,100.0,0.0007,28.0,43.0
+Dipole,abs_dZ,|dZ_tr| between intact and fractured (Ohm),66.0,3549.7649,34.0,21.4727,0.6049,0.9407,66.0,66.0
+Dipole,rel_dZ_pct,|dZ_tr| / |Z_tr| (%),66.0,0.9927,34.0,0.006,0.6078,0.0003,66.0,66.0
